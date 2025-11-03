@@ -488,21 +488,21 @@ while True:
                                         alineacion_centrada = Alignment(horizontal='center', vertical='center')
 
                                         for num_col, encabezado in enumerate(columnas, 1):
-                                            celda = hoja.cell(fila=3, column=num_col, value=encabezado.upper())
+                                            celda = hoja.cell(row=3, column=num_col, value=encabezado.upper())
                                             celda.font = encabezado_font
                                             celda.border = borde_grueso
                                             celda.alignment = alineacion_centrada
 
                                         for fila_num, fila_datos in enumerate(datos, 4):
                                             for num_col, valor in enumerate(fila_datos, 1):
-                                                celda = hoja.cell(fila=fila_num, column=num_col, value=valor)
+                                                celda = hoja.cell(row=fila_num, column=num_col, value=valor)
                                                 celda.alignment = alineacion_centrada
 
                                         for x in range(1, len(columnas) + 1):
                                             letra_col = get_column_letter(x)
                                             longitud_max = 0
                                             for fila in range(3, hoja.max_row + 1):
-                                                valor_celda = hoja.cell(fila=fila, column=x).value
+                                                valor_celda = hoja.cell(row=fila, column=x).value
                                                 try:
                                                     if valor_celda and len(str(valor_celda)) > longitud_max:
                                                         longitud_max = len(str(valor_celda))
